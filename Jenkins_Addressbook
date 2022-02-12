@@ -6,17 +6,10 @@ pipeline {
  }
  tools {
 
-     maven 'maven3.6'
-     jdk 'java'
+     maven 'maven3mvn3.8.3'
+     jdk 'JDK11'
  }
 stages {
-    stage ('checkout code from SCM'){
-     steps{   
-
-         git branch: 'master', url: 'https://github.com/spring-projects/spring-petclinic.git'
-
-      }
-    }
     stage ('Cleaning'){
         steps{
             sh """
