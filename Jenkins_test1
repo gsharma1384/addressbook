@@ -9,14 +9,18 @@ pipeline {
         jdk 'JDK11'
     }
     stages {
-        stage('Cleaning'){
-            steps {
-                sh 'mvn clean'
-            }
-        }
-        stage('Compile'){
-            steps {
-                sh 'mvn compile'
+        stage ('Runs n Paralle') {
+            parallel {
+                stage('Cleaning'){
+                    steps {
+                        sh 'mvn clean'
+                    }
+                }      
+                stage('Compile'){
+                    steps {
+                        sh 'mvn compile'
+                    }
+                }
             }
         }
         stage('Test'){
